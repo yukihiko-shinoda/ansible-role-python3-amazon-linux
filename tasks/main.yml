@@ -1,0 +1,32 @@
+---
+- name: install ius repository
+  yum:
+    name: https://centos6.iuscommunity.org/ius-release.rpm
+
+- name: install python
+  yum:
+    name: '{{ item }}'
+  with_items:
+    - python35u
+    - python35u-libs
+    - python35u-devel
+    - python35u-pip
+
+- name: set symbolic link 1
+  file:
+    src: /usr/bin/python3.5
+    path: /usr/bin/python3
+    state: link
+
+- name: set symbolic link 2
+  file:
+    src: /usr/bin/python3
+    path: /usr/bin/python
+    state: link
+    force: yes
+
+- name: set symbolic link 3
+  file:
+    src: /usr/bin/pip3.5
+    path: /usr/bin/pip
+    state: link
