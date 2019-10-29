@@ -1,0 +1,6 @@
+---
+# @see https://developers.redhat.com/blog/2018/11/14/python-in-rhel-8/
+# @see https://developers.redhat.com/blog/2019/05/07/what-no-python-in-red-hat-enterprise-linux-8/
+- name: install python
+  yum:
+    name: python3
